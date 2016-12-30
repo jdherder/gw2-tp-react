@@ -27,10 +27,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        Buy Price:
         <CoinEntryForm formType='buy' coins={this.state.coinBuyPrice} updateCoins={this.updateValues} />
-
-        Sell Price:
         <CoinEntryForm formType='list' coins={this.state.coinListPrice} updateCoins={this.updateValues} />
 
         <hr />

@@ -1,0 +1,22 @@
+.CoinEntryForm {
+    padding: 20px;
+}
+
+.CoinEntryForm div {
+    display: inline-block;
+    margin: 10px 10px;
+}
+.CoinEntryForm input {
+    width: 60px;
+    padding: 10px 10px 10px 30px;
+    font-size: 24px;
+}
+.CoinEntryForm input.gold {
+    background: url('./images/gold.png') no-repeat 8px center;
+}
+.CoinEntryForm input.silver {
+    background: url('./images/silver.png') no-repeat 8px center;
+}
+.CoinEntryForm input.copper {
+    background: url('./images/copper.png') no-repeat 8px center;
+}
