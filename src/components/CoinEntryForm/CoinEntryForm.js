@@ -11,13 +11,13 @@ class CoinEntryForm extends Component {
     }
   }
   updateGold = (event) => {
-    this.setState({gold: event.target.value}, this.sendUpdate);
+    this.setState({gold: event.target.value.replace(/[^0-9.]+/g, '')}, this.sendUpdate);
   };
   updateSilver = (event) => {
-    this.setState({silver: event.target.value}, this.sendUpdate);
+    this.setState({silver: event.target.value.replace(/[^0-9.]+/g, '')}, this.sendUpdate);
   };
   updateCopper = (event) => {
-    this.setState({copper: event.target.value}, this.sendUpdate);
+    this.setState({copper: event.target.value.replace(/[^0-9.]+/g, '')}, this.sendUpdate);
   };
   sendUpdate = () => {
     const total = parseInt(this.state.gold * 10000, 10) + parseInt(this.state.silver * 100, 10) + parseInt(this.state.copper, 10);
@@ -33,7 +33,8 @@ class CoinEntryForm extends Component {
                  type="text"
                  value={this.state.gold}
                  onChange={this.updateGold}
-                 onFocus={()=>{this.refs.gold.select()}} />
+                 onFocus={()=>{this.refs.gold.select()}}
+                 maxLength="4" />
         </div>
         <div>
           <input ref="silver"

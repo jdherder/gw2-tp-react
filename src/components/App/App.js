@@ -26,7 +26,7 @@ class App extends Component {
 
         <hr />
 
-        <CoinDisplay label="Listing Fee" coins={this.state.coinListPrice} />
+        <CoinDisplay label="Listing Fee" coins={this.state.coinFeeListing} />
         <CoinDisplay label="Exchange Fee" coins={this.state.coinFeeExchange} />
         <CoinDisplay label="Net" coins={this.state.coinNet} />
         <CoinDisplay label="Profit" coins={this.state.coinProfit} />
@@ -46,8 +46,8 @@ class App extends Component {
   updateValues = () => {
     let coinFeeListing = Math.round(this.state.coinListPrice * 0.05) || 1;
     let coinFeeExchange = Math.round(this.state.coinListPrice * 0.10) || 1;
-    let coinNet = this.state.coinListPrice - coinFeeListing - coinFeeExchange || 0;
-    let coinProfit = coinNet - this.state.coinBuyPrice || 0;
+    let coinNet = this.state.coinListPrice - coinFeeListing - coinFeeExchange;
+    let coinProfit = coinNet - this.state.coinBuyPrice;
 
     if (this.state.coinListPrice <= 0) {
       coinFeeListing = 0;

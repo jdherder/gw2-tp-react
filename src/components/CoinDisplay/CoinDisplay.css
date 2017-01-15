@@ -6,6 +6,9 @@
     display: flex;
     justify-content: flex-end;
 }
+.CoinDisplay.negative {
+    color: red;
+}
 .CoinDisplay .coin {
     display: inline-block;
     width: 16px;
