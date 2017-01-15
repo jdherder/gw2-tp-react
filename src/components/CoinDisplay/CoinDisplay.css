@@ -30,7 +30,7 @@
 .CoinDisplay .value {
     display: inline-block;
     margin: 0 18px 0 1px;
-    min-width: 20px;
+    min-width: 27px;
     text-align: right;
     font-size: 22px;
     text-shadow: black 2px 2px 5px;

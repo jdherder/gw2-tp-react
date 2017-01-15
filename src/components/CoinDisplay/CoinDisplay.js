@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './CoinDisplay.css';
 
-class CoinEntryForm extends Component {
+class CoinDisplay extends Component {
   render() {
     let total = Math.abs(this.props.coins);
 
@@ -29,4 +29,4 @@ class CoinEntryForm extends Component {
   }
 }
 
-export default CoinEntryForm;
+export default CoinDisplay;

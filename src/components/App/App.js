@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import CoinEntryForm from '../CoinEntryForm/CoinEntryForm';
 import CoinDisplay from '../CoinDisplay/CoinDisplay';
+import Footer from '../Footer/Footer';
 import './App.css';
 
 class App extends Component {
@@ -23,9 +24,9 @@ class App extends Component {
 
         <CoinDisplay label="Listing Fee" coins={this.state.coinFeeListing} />
         <CoinDisplay label="Exchange Fee" coins={this.state.coinFeeExchange} />
-        <CoinDisplay label="Net" coins={this.state.coinNet} />
         <CoinDisplay label="Profit" coins={this.state.coinProfit} />
 
+        <Footer />
       </div>
     );
   }
