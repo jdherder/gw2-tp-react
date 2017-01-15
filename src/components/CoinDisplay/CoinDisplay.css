@@ -1,0 +1,37 @@
+.CoinDisplay {
+    padding: 10px 20px;
+    width: 200px;
+}
+.CoinDisplay .coin-container {
+    display: flex;
+    justify-content: flex-end;
+}
+.CoinDisplay .coin {
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    background-size: cover;
+    vertical-align: middle;
+}
+.CoinDisplay .gold {
+    background: url('../../images/gold.png') no-repeat center center;
+}
+.CoinDisplay .silver {
+    background: url('../../images/silver.png') no-repeat center center;
+}
+.CoinDisplay .copper {
+    background: url('../../images/copper.png') no-repeat center center;
+}
+
+.CoinDisplay .value {
+    display: inline-block;
+    margin: 0 18px 0 1px;
+    min-width: 20px;
+    text-align: right;
+}
+
+.CoinDisplay .label {
+    font-size: 10px;
+    margin: 0 18px 0 0;
+    text-align: right;
+}

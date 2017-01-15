@@ -1,40 +1,58 @@
 import React, { Component } from 'react';
 import './CoinEntryForm.css';
-// import copper from './images/copper.png';
-// import silver from './images/silver.png';
-// import gold from './images/gold.png';
 
 class CoinEntryForm extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      gold: 0,
+      silver: 0,
+      copper: 0,
+    }
+  }
+  updateGold = (event) => {
+    this.setState({gold: event.target.value}, this.sendUpdate);
+  };
+  updateSilver = (event) => {
+    this.setState({silver: event.target.value}, this.sendUpdate);
+  };
+  updateCopper = (event) => {
+    this.setState({copper: event.target.value}, this.sendUpdate);
+  };
+  sendUpdate = () => {
+    const total = parseInt(this.state.gold * 10000, 10) + parseInt(this.state.silver * 100, 10) + parseInt(this.state.copper, 10);
+    const value = total || 0;
+    this.props.updateCoins(value);
+  };
   render() {
     return (
       <div className="CoinEntryForm">
-        <p>{this.props.formType.toUpperCase()} Price</p>
         <div>
           <input ref="gold"
                  className="gold"
                  type="text"
-                 value={this.props.coins.gold}
-                 onChange={this.props.updateCoins.bind(null, 'gold', this.props.formType)}
+                 value={this.state.gold}
+                 onChange={this.updateGold}
                  onFocus={()=>{this.refs.gold.select()}} />
         </div>
         <div>
           <input ref="silver"
                  className="silver"
                  type="text"
-                 value={this.props.coins.silver}
-                 onChange={this.props.updateCoins.bind(null, 'silver', this.props.formType)}
-                 onFocus={()=>{this.refs.silver.select()}} />
+                 value={this.state.silver}
+                 onChange={this.updateSilver}
+                 onFocus={()=>{this.refs.silver.select()}}
+                 maxLength="2" />
         </div>
         <div>
           <input ref="copper"
                  className="copper"
                  type="text"
-                 value={this.props.coins.copper}
-                 onChange={this.props.updateCoins.bind(null, 'copper', this.props.formType)}
-                 onFocus={()=>{this.refs.copper.select()}} />
+                 value={this.state.copper}
+                 onChange={this.updateCopper}
+                 onFocus={()=>{this.refs.copper.select()}}
+                 maxLength="2" />
         </div>
-
-        <p className="debug">(total {this.props.formType}): {this.props.coins.total}</p>
       </div>
     );
   }
