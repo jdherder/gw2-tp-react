@@ -1,15 +1,19 @@
 .CoinEntryForm {
     padding: 20px;
 }
-
-.CoinEntryForm div {
-    display: inline-block;
-    margin: 10px 10px;
+.CoinEntryForm .inputs {
+    display: flex;
+    justify-content: center;
 }
 .CoinEntryForm input {
     width: 60px;
     padding: 10px 10px 10px 30px;
+    margin: 0 5px;
     font-size: 24px;
+    border-radius: 50px;
+    border: 1px solid white;
+    box-shadow: none;
+    outline: none;
 }
 .CoinEntryForm input.gold {
     background: url('../../images/gold.png') no-repeat 8px center;
@@ -19,4 +23,8 @@
 }
 .CoinEntryForm input.copper {
     background: url('../../images/copper.png') no-repeat 8px center;
+}
+.CoinEntryForm .label {
+    margin-top: 10px;
+    text-align: center;
 }

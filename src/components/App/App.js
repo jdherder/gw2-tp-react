@@ -18,13 +18,8 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <div>Buy Price</div>
-        <CoinEntryForm updateCoins={this.updateBuyPrice} />
-
-        <div>List Price</div>
-        <CoinEntryForm updateCoins={this.updateListPrice} />
-
-        <hr />
+        <CoinEntryForm label="Buy Price" updateCoins={this.updateBuyPrice} />
+        <CoinEntryForm label="List Price" updateCoins={this.updateListPrice} />
 
         <CoinDisplay label="Listing Fee" coins={this.state.coinFeeListing} />
         <CoinDisplay label="Exchange Fee" coins={this.state.coinFeeExchange} />

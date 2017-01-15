@@ -27,7 +27,7 @@ class CoinEntryForm extends Component {
   render() {
     return (
       <div className="CoinEntryForm">
-        <div>
+        <div className="inputs">
           <input ref="gold"
                  className="gold"
                  type="text"
@@ -35,8 +35,6 @@ class CoinEntryForm extends Component {
                  onChange={this.updateGold}
                  onFocus={()=>{this.refs.gold.select()}}
                  maxLength="4" />
-        </div>
-        <div>
           <input ref="silver"
                  className="silver"
                  type="text"
@@ -44,8 +42,6 @@ class CoinEntryForm extends Component {
                  onChange={this.updateSilver}
                  onFocus={()=>{this.refs.silver.select()}}
                  maxLength="2" />
-        </div>
-        <div>
           <input ref="copper"
                  className="copper"
                  type="text"
@@ -54,6 +50,7 @@ class CoinEntryForm extends Component {
                  onFocus={()=>{this.refs.copper.select()}}
                  maxLength="2" />
         </div>
+        <div className="label">{this.props.label}</div>
       </div>
     );
   }
