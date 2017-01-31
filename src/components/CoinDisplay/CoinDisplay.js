@@ -1,17 +1,18 @@
 import React, { Component } from 'react';
+import Constants from '../../constants';
 import './CoinDisplay.css';
 
 class CoinDisplay extends Component {
   render() {
     let total = Math.abs(this.props.coins);
 
-    let gold = Math.floor(total / 10000);
-    total -= (gold * 10000);
+    let gold = Math.floor(total / Constants.goldMultiplier);
+    total -= (gold * Constants.goldMultiplier);
 
-    let silver = Math.floor(total / 100);
-    total -= (silver * 100);
+    let silver = Math.floor(total / Constants.silverMultiplier);
+    total -= (silver * Constants.silverMultiplier);
 
-    let copper = total;
+    let copper = Math.floor(total / Constants.copperMultiplier);
 
     let sign = this.props.coins >= 0 ? '' : '-';
 

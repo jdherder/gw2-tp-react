@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Constants from '../../constants';
 import CoinEntryForm from '../CoinEntryForm/CoinEntryForm';
 import CoinDisplay from '../CoinDisplay/CoinDisplay';
 import Footer from '../Footer/Footer';
@@ -40,8 +41,8 @@ class App extends Component {
   };
 
   updateValues = () => {
-    let coinFeeListing = Math.round(this.state.coinListPrice * 0.05) || 1;
-    let coinFeeExchange = Math.round(this.state.coinListPrice * 0.10) || 1;
+    let coinFeeListing = Math.round(this.state.coinListPrice * Constants.listingFeeMultiplier) || 1;
+    let coinFeeExchange = Math.round(this.state.coinListPrice * Constants.exchangeFeeMultiplier) || 1;
     let coinNet = this.state.coinListPrice - coinFeeListing - coinFeeExchange;
     let coinProfit = coinNet - this.state.coinBuyPrice;
 

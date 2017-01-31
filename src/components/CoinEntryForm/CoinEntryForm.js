@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Constants from '../../constants';
 import './CoinEntryForm.css';
 
 class CoinEntryForm extends Component {
@@ -20,7 +21,7 @@ class CoinEntryForm extends Component {
     this.setState({copper: event.target.value.replace(/[^0-9.]+/g, '')}, this.sendUpdate);
   };
   sendUpdate = () => {
-    const total = parseInt(this.state.gold * 10000, 10) + parseInt(this.state.silver * 100, 10) + parseInt(this.state.copper, 10);
+    const total = parseInt(this.state.gold * Constants.goldMultiplier, 10) + parseInt(this.state.silver * Constants.silverMultiplier, 10) + parseInt(this.state.copper *  Constants.copperMultiplier, 10);
     const value = total || 0;
     this.props.updateCoins(value);
   };
