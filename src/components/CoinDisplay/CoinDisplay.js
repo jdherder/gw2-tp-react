@@ -16,13 +16,27 @@ class CoinDisplay extends Component {
 
     let sign = this.props.coins >= 0 ? '' : '-';
 
+    //conditional classes
+    let signClass = this.props.coins >= 0 ? 'positive' : 'negative';
+    let showGold = gold ? 'show' : 'hide';
+    let showSilver = !silver && !gold ? 'hide' : 'show';
+
     return (
-      <div className={"CoinDisplay " + (this.props.coins >= 0 ? 'positive' : 'negative')}>
+      <div className={`CoinDisplay ${signClass}`}>
         <div className="coin-container">
           {sign}
-          <div className="coin gold"></div><div className="value">{gold}</div>
-          <div className="coin silver"></div><div className="value">{silver}</div>
-          <div className="coin copper"></div><div className="value">{copper}</div>
+          <div className={showGold}>
+            <div className="coin gold"></div>
+            <div className="value">{gold}</div>
+          </div>
+          <div className={showSilver}>
+            <div className="coin silver"></div>
+            <div className="value">{silver}</div>
+          </div>
+          <div class="coin-group">
+            <div className="coin copper"></div>
+            <div className="value">{copper}</div>
+          </div>
         </div>
         <div className="label">{this.props.label}</div>
       </div>

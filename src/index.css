@@ -9,3 +9,7 @@ body {
   font-size: 10px;
   color: #CCC;
 }
+
+.hide {
+  display: none;
+}
