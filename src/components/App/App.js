@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Constants from '../../constants';
 import CoinEntryForm from '../CoinEntryForm/CoinEntryForm';
 import CoinDisplay from '../CoinDisplay/CoinDisplay';
+import QuantityEntryForm from '../QuantityEntryForm/QuantityEntryForm';
 import Footer from '../Footer/Footer';
 import './App.css';
 
@@ -14,7 +15,8 @@ class App extends Component {
       coinFeeListing: 0,
       coinFeeExchange: 0,
       coinNet: 0,
-      coinProfit: 0
+      coinProfit: 0,
+      quantity: 1,
     };
   }
   render() {
@@ -22,6 +24,7 @@ class App extends Component {
       <div className="App">
         <CoinEntryForm label="Buy Price" updateCoins={this.updateBuyPrice} />
         <CoinEntryForm label="List Price" updateCoins={this.updateListPrice} />
+        <QuantityEntryForm label="Quantity" quantity={this.state.quantity} updateQuantity={this.updateQuantity} />
 
         <CoinDisplay label="Listing Fee" coins={this.state.coinFeeListing} />
         <CoinDisplay label="Exchange Fee" coins={this.state.coinFeeExchange} />
@@ -40,11 +43,18 @@ class App extends Component {
     this.setState({coinListPrice: coins}, this.updateValues);
   };
 
+  updateQuantity = (quantity) => {
+    this.setState({quantity: quantity}, this.updateValues);
+  };
+
   updateValues = () => {
-    let coinFeeListing = Math.round(this.state.coinListPrice * Constants.listingFeeMultiplier) || 1;
-    let coinFeeExchange = Math.round(this.state.coinListPrice * Constants.exchangeFeeMultiplier) || 1;
-    let coinNet = this.state.coinListPrice - coinFeeListing - coinFeeExchange;
-    let coinProfit = coinNet - this.state.coinBuyPrice;
+    let quantity = this.state.quantity || 1;
+    let totalList = this.state.coinListPrice * quantity;
+    let totalBuy = this.state.coinBuyPrice * quantity;
+    let coinFeeListing = Math.round(totalList * Constants.listingFeeMultiplier) || 1;
+    let coinFeeExchange = Math.round(totalList * Constants.exchangeFeeMultiplier) || 1;
+    let coinNet = totalList - coinFeeListing - coinFeeExchange;
+    let coinProfit = coinNet - totalBuy;
 
     if (this.state.coinListPrice <= 0) {
       coinFeeListing = 0;
