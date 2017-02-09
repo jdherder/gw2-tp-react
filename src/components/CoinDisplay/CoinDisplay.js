@@ -25,15 +25,15 @@ class CoinDisplay extends Component {
       <div className={`CoinDisplay ${signClass}`}>
         <div className="coin-container">
           {sign}
-          <div className={showGold}>
+          <div className={`coin-group ${showGold}`}>
             <div className="coin gold"></div>
             <div className="value">{gold}</div>
           </div>
-          <div className={showSilver}>
+          <div className={`coin-group ${showSilver}`}>
             <div className="coin silver"></div>
             <div className="value">{silver}</div>
           </div>
-          <div class="coin-group">
+          <div className="coin-group">
             <div className="coin copper"></div>
             <div className="value">{copper}</div>
           </div>
